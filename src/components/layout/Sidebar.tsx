@@ -1,9 +1,11 @@
+'use client'
+
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { getLayers, getSessionMeta, SessionId } from '@/data/sessions'
 
 interface SidebarProps {
   locale: string
-  currentSession?: string
 }
 
 const LAYER_COLOR: Record<string, string> = {
@@ -23,7 +25,9 @@ const LEVEL_LABEL: Record<string, Record<string, string>> = {
   ja: { beginner: '初級', intermediate: '中級' },
 }
 
-export default function Sidebar({ locale, currentSession }: SidebarProps) {
+export default function Sidebar({ locale }: SidebarProps) {
+  const pathname = usePathname()
+  const currentSession = pathname?.split('/')[2] ?? null
   const layers = getLayers(locale)
   const sessionMeta = getSessionMeta(locale)
   const levelLabel = LEVEL_LABEL[locale] ?? LEVEL_LABEL.en

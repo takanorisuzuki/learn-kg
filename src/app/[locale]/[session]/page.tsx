@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: SessionPageProps) {
   const sessionMeta = getSessionMeta(locale)
   const meta = sessionMeta[session as SessionId]
   if (!meta) return {}
-  const siteName = locale === 'en' ? 'Learn KG' : 'Learn KG'
+  const siteName = 'Learn KG'
   return {
     title: `${meta.title} — ${siteName}`,
     description: meta.keyInsight,
