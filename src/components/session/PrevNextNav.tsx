@@ -1,15 +1,22 @@
 import Link from 'next/link'
-import { SESSION_ORDER, SESSION_META, SessionId } from '@/data/sessions'
+import { SESSION_ORDER, getSessionMeta, SessionId } from '@/data/sessions'
 
 interface PrevNextNavProps {
   locale: string
   currentSession: string
 }
 
+const NAV_LABEL: Record<string, { prev: string; next: string }> = {
+  en: { prev: '← Previous', next: 'Next →' },
+  ja: { prev: '← 前のセッション', next: '次のセッション →' },
+}
+
 export default function PrevNextNav({ locale, currentSession }: PrevNextNavProps) {
   const currentIndex = SESSION_ORDER.indexOf(currentSession as SessionId)
   const prevId = currentIndex > 0 ? SESSION_ORDER[currentIndex - 1] : null
   const nextId = currentIndex < SESSION_ORDER.length - 1 ? SESSION_ORDER[currentIndex + 1] : null
+  const sessionMeta = getSessionMeta(locale)
+  const label = NAV_LABEL[locale] ?? NAV_LABEL.en
 
   return (
     <div
@@ -24,7 +31,7 @@ export default function PrevNextNav({ locale, currentSession }: PrevNextNavProps
             style={{ border: '1px solid var(--color-border)' }}
           >
             <span className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>
-              ← 前のセッション
+              {label.prev}
             </span>
             <span
               className="text-sm font-semibold leading-snug"
@@ -36,7 +43,7 @@ export default function PrevNextNav({ locale, currentSession }: PrevNextNavProps
               >
                 {prevId}
               </span>
-              {SESSION_META[prevId].title}
+              {sessionMeta[prevId].title}
             </span>
           </Link>
         )}
@@ -49,13 +56,13 @@ export default function PrevNextNav({ locale, currentSession }: PrevNextNavProps
             style={{ border: '1px solid var(--color-border)' }}
           >
             <span className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>
-              次のセッション →
+              {label.next}
             </span>
             <span
               className="text-sm font-semibold leading-snug"
               style={{ color: 'var(--color-text)' }}
             >
-              {SESSION_META[nextId].title}
+              {sessionMeta[nextId].title}
               <span
                 className="font-mono text-xs ml-1"
                 style={{ color: 'var(--color-text-secondary)' }}
