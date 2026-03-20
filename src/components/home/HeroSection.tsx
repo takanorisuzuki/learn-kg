@@ -6,7 +6,7 @@ const STATS = [
   { label: 'APIキー不要', value: 'Local' },
 ]
 
-export default function HeroSection() {
+export default function HeroSection({ locale }: { locale: string }) {
   return (
     <div className="relative rounded-2xl overflow-hidden mb-10 px-8 py-12"
       style={{ background: 'linear-gradient(135deg, #1e1b4b 0%, #172554 50%, #052e16 100%)' }}
@@ -57,7 +57,7 @@ export default function HeroSection() {
         </div>
 
         <Link
-          href="/ja/s01"
+          href={`/${locale}/s01`}
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-opacity hover:opacity-90"
           style={{ background: 'linear-gradient(135deg, #3b82f6, #6366f1)', color: '#ffffff' }}
         >

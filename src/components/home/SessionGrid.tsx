@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { LAYERS, SESSION_META, SessionId } from '@/data/sessions'
 

@@ -9,7 +9,7 @@ export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params
   return (
     <div>
-      <HeroSection />
+      <HeroSection locale={locale} />
       <SessionGrid locale={locale} />
     </div>
   )
