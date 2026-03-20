@@ -5,7 +5,7 @@ interface SessionContentProps {
 export default function SessionContent({ content }: SessionContentProps) {
   return (
     <div
-      className="prose prose-gray max-w-none"
+      className="prose-custom"
       dangerouslySetInnerHTML={{ __html: content }}
     />
   )

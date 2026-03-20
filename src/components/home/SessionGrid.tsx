@@ -10,45 +10,140 @@ const LEVEL_LABEL: Record<string, string> = {
   intermediate: '中級',
 }
 
-const LEVEL_COLOR: Record<string, string> = {
-  beginner: 'bg-green-100 text-green-700',
-  intermediate: 'bg-orange-100 text-orange-700',
+const LAYER_CONFIG: Record<string, { color: string; bg: string; border: string; hoverBorder: string }> = {
+  foundations: {
+    color: '#3B82F6',
+    bg: 'rgba(59,130,246,0.05)',
+    border: 'rgba(59,130,246,0.15)',
+    hoverBorder: 'rgba(59,130,246,0.4)',
+  },
+  graphrag: {
+    color: '#10B981',
+    bg: 'rgba(16,185,129,0.05)',
+    border: 'rgba(16,185,129,0.15)',
+    hoverBorder: 'rgba(16,185,129,0.4)',
+  },
+  beyond: {
+    color: '#F59E0B',
+    bg: 'rgba(245,158,11,0.05)',
+    border: 'rgba(245,158,11,0.15)',
+    hoverBorder: 'rgba(245,158,11,0.4)',
+  },
 }
 
 export default function SessionGrid({ locale }: SessionGridProps) {
   return (
-    <div className="space-y-8">
-      {LAYERS.map((layer) => (
-        <section key={layer.id}>
-          <h2 className="text-xl font-bold text-gray-800 mb-4 pb-2 border-b border-gray-200">
-            {layer.label}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {layer.sessions.map((sessionId) => {
-              const session = SESSION_META[sessionId as SessionId]
-              return (
-                <Link
-                  key={sessionId}
-                  href={`/${locale}/${sessionId}`}
-                  className="block p-4 bg-white border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-sm transition-all"
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-mono text-xs text-gray-400">{sessionId}</span>
-                    <div className="flex gap-2">
-                      <span className={`text-xs px-2 py-0.5 rounded-full ${LEVEL_COLOR[session.level]}`}>
-                        {LEVEL_LABEL[session.level]}
+    <div className="space-y-10">
+      {LAYERS.map((layer) => {
+        const config = LAYER_CONFIG[layer.id]
+        return (
+          <section key={layer.id}>
+            <div className="flex items-center gap-2 mb-4 pb-3" style={{ borderBottom: `1px solid var(--color-border)` }}>
+              <span
+                className="w-3 h-3 rounded-full shrink-0"
+                style={{ backgroundColor: config.color }}
+              />
+              <h2
+                className="text-lg font-bold"
+                style={{ color: 'var(--color-text)' }}
+              >
+                {layer.label}
+              </h2>
+              <span
+                className="text-xs px-2 py-0.5 rounded-full"
+                style={{ backgroundColor: `${config.color}18`, color: config.color }}
+              >
+                {layer.sessions.length}セッション
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {layer.sessions.map((sessionId) => {
+                const session = SESSION_META[sessionId as SessionId]
+                return (
+                  <Link
+                    key={sessionId}
+                    href={`/${locale}/${sessionId}`}
+                    className="group block p-4 rounded-xl transition-all duration-200"
+                    style={{
+                      backgroundColor: config.bg,
+                      border: `1px solid ${config.border}`,
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLElement).style.borderColor = config.hoverBorder
+                      ;(e.currentTarget as HTMLElement).style.boxShadow = `0 4px 16px ${config.color}18`
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLElement).style.borderColor = config.border
+                      ;(e.currentTarget as HTMLElement).style.boxShadow = 'none'
+                    }}
+                  >
+                    <div className="flex items-center justify-between mb-2.5">
+                      <span
+                        className="font-mono text-xs font-semibold px-2 py-0.5 rounded"
+                        style={{ backgroundColor: `${config.color}18`, color: config.color }}
+                      >
+                        {sessionId}
                       </span>
-                      <span className="text-xs text-gray-400">{session.duration}分</span>
+                      <div className="flex items-center gap-1.5">
+                        <span
+                          className="text-xs px-1.5 py-0.5 rounded-full"
+                          style={
+                            session.level === 'beginner'
+                              ? { backgroundColor: 'rgba(16,185,129,0.12)', color: '#10B981' }
+                              : { backgroundColor: 'rgba(245,158,11,0.12)', color: '#F59E0B' }
+                          }
+                        >
+                          {LEVEL_LABEL[session.level]}
+                        </span>
+                        <span className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>
+                          {session.duration}分
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  <h3 className="font-semibold text-gray-900 text-sm mb-1">{session.title}</h3>
-                  <p className="text-xs text-gray-500">{session.subtitle}</p>
-                </Link>
-              )
-            })}
-          </div>
-        </section>
-      ))}
+
+                    <h3
+                      className="font-semibold text-sm mb-1 leading-snug"
+                      style={{ color: 'var(--color-text)' }}
+                    >
+                      {session.title}
+                    </h3>
+                    <p
+                      className="text-xs mb-2.5"
+                      style={{ color: 'var(--color-text-secondary)' }}
+                    >
+                      {session.subtitle}
+                    </p>
+
+                    <div
+                      className="flex items-start gap-1.5 p-2 rounded-lg"
+                      style={{ backgroundColor: 'rgba(0,0,0,0.04)' }}
+                    >
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke={config.color}
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="shrink-0 mt-0.5"
+                        aria-hidden="true"
+                      >
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                      </svg>
+                      <p className="text-xs leading-snug" style={{ color: 'var(--color-text-secondary)' }}>
+                        {session.keyInsight}
+                      </p>
+                    </div>
+                  </Link>
+                )
+              })}
+            </div>
+          </section>
+        )
+      })}
     </div>
   )
 }
