@@ -1,6 +1,19 @@
-import Link from 'next/link'
+'use client'
 
-export default function Header() {
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
+interface HeaderProps {
+  locale: string
+}
+
+export default function Header({ locale }: HeaderProps) {
+  const pathname = usePathname()
+
+  // /en/... -> /ja/... or /ja/... -> /en/...
+  const toggleLocale = locale === 'en' ? 'ja' : 'en'
+  const togglePath = pathname.replace(/^\/(en|ja)/, `/${toggleLocale}`)
+
   return (
     <header
       className="sticky top-0 z-50 border-b px-6 py-3"
@@ -11,7 +24,7 @@ export default function Header() {
     >
       <div className="flex items-center justify-between max-w-screen-xl mx-auto">
         <Link
-          href="/ja"
+          href={`/${locale}`}
           className="flex items-center gap-2 group"
         >
           <div
@@ -39,6 +52,33 @@ export default function Header() {
         </Link>
 
         <div className="flex items-center gap-3">
+          {/* Language switcher */}
+          <div
+            className="flex items-center text-xs font-medium border rounded-full overflow-hidden"
+            style={{ borderColor: 'var(--color-border)' }}
+          >
+            <Link
+              href={locale === 'en' ? pathname : togglePath}
+              className="px-3 py-1 transition-colors"
+              style={{
+                backgroundColor: locale === 'en' ? 'var(--color-text)' : 'var(--color-bg)',
+                color: locale === 'en' ? 'var(--color-bg)' : 'var(--color-text-secondary)',
+              }}
+            >
+              EN
+            </Link>
+            <Link
+              href={locale === 'ja' ? pathname : togglePath}
+              className="px-3 py-1 transition-colors"
+              style={{
+                backgroundColor: locale === 'ja' ? 'var(--color-text)' : 'var(--color-bg)',
+                color: locale === 'ja' ? 'var(--color-bg)' : 'var(--color-text-secondary)',
+              }}
+            >
+              JA
+            </Link>
+          </div>
+
           <a
             href="https://github.com/DevRev-JP/tech-blog"
             target="_blank"

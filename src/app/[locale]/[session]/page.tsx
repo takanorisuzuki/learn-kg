@@ -8,15 +8,28 @@ interface SessionPageProps {
   params: Promise<{ locale: string; session: string }>
 }
 
-const LEVEL_LABEL: Record<string, string> = {
-  beginner: '初級',
-  intermediate: '中級',
+const LEVEL_LABEL: Record<string, Record<string, string>> = {
+  ja: {
+    beginner: '初級',
+    intermediate: '中級',
+  },
+  en: {
+    beginner: 'Beginner',
+    intermediate: 'Intermediate',
+  },
 }
 
-const LAYER_LABEL: Record<string, string> = {
-  foundations: 'KG基礎',
-  graphrag: 'GraphRAG実装',
-  beyond: 'KGを超えて使う',
+const LAYER_LABEL: Record<string, Record<string, string>> = {
+  ja: {
+    foundations: 'KG基礎',
+    graphrag: 'GraphRAG実装',
+    beyond: 'KGを超えて使う',
+  },
+  en: {
+    foundations: 'KG Foundations',
+    graphrag: 'GraphRAG Implementation',
+    beyond: 'Beyond GraphRAG',
+  },
 }
 
 const LAYER_COLOR: Record<string, string> = {
@@ -27,10 +40,13 @@ const LAYER_COLOR: Record<string, string> = {
 
 export async function generateStaticParams() {
   const sessionIds = getSessionIds()
-  return sessionIds.map((id) => ({
-    locale: 'ja',
-    session: id,
-  }))
+  const locales = ['ja', 'en']
+  return locales.flatMap((locale) =>
+    sessionIds.map((id) => ({
+      locale,
+      session: id,
+    }))
+  )
 }
 
 export default async function SessionPage({ params }: SessionPageProps) {
@@ -44,6 +60,7 @@ export default async function SessionPage({ params }: SessionPageProps) {
   const meta = SESSION_META[session as SessionId]
   const { content } = await getSessionContent(locale, session)
   const layerColor = LAYER_COLOR[meta.layer]
+  const lang = locale === 'en' ? 'en' : 'ja'
 
   return (
     <article className="max-w-3xl">
@@ -59,7 +76,7 @@ export default async function SessionPage({ params }: SessionPageProps) {
             className="text-xs px-2 py-0.5 rounded-full"
             style={{ backgroundColor: 'var(--color-bg-secondary)', color: 'var(--color-text-secondary)', border: '1px solid var(--color-border)' }}
           >
-            {LAYER_LABEL[meta.layer]}
+            {LAYER_LABEL[lang][meta.layer]}
           </span>
           <span
             className="text-xs px-2 py-0.5 rounded-full"
@@ -69,10 +86,10 @@ export default async function SessionPage({ params }: SessionPageProps) {
                 : { backgroundColor: 'rgba(245,158,11,0.12)', color: '#F59E0B' }
             }
           >
-            {LEVEL_LABEL[meta.level]}
+            {LEVEL_LABEL[lang][meta.level]}
           </span>
           <span className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>
-            {meta.duration}分
+            {meta.duration}{lang === 'en' ? ' min' : '分'}
           </span>
         </div>
 

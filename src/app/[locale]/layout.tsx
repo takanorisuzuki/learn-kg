@@ -10,7 +10,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const { locale } = await params
   return (
     <div className="flex flex-col min-h-screen" style={{ backgroundColor: 'var(--color-bg)' }}>
-      <Header />
+      <Header locale={locale} />
       <div className="flex flex-1">
         {/* Sidebar: hidden on mobile, visible on md+ */}
         <div className="hidden md:block">
