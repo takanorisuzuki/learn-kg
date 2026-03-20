@@ -38,6 +38,24 @@ const LAYER_COLOR: Record<string, string> = {
   beyond: '#F59E0B',
 }
 
+export async function generateMetadata({ params }: SessionPageProps) {
+  const { locale, session } = await params
+  const sessionMeta = getSessionMeta(locale)
+  const meta = sessionMeta[session as SessionId]
+  if (!meta) return {}
+  const siteName = locale === 'en' ? 'Learn KG' : 'Learn KG'
+  return {
+    title: `${meta.title} — ${siteName}`,
+    description: meta.keyInsight,
+    openGraph: {
+      title: meta.title,
+      description: meta.keyInsight,
+      siteName,
+      locale: locale === 'en' ? 'en_US' : 'ja_JP',
+    },
+  }
+}
+
 export async function generateStaticParams() {
   const sessionIds = getSessionIds()
   const locales = ['ja', 'en']
