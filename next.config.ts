@@ -2,11 +2,15 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   async redirects() {
-    return [
-      { source: '/:locale/architecture', destination: '/:locale', permanent: false },
-      { source: '/:locale/timeline', destination: '/:locale', permanent: false },
-      { source: '/:locale/compare', destination: '/:locale', permanent: false },
-    ]
+    const pages = ['architecture', 'timeline', 'compare']
+    const locales = ['en', 'ja']
+    return pages.flatMap((page) =>
+      locales.map((locale) => ({
+        source: `/${locale}/${page}`,
+        destination: `/${locale}`,
+        permanent: false,
+      }))
+    )
   },
 };
 

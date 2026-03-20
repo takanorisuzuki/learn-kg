@@ -30,9 +30,11 @@ export default function SessionContent({ content }: SessionContentProps) {
         const container = document.createElement('div')
         container.className = 'mermaid-diagram my-6'
         block.closest('pre')?.replaceWith(container)
-        mermaid.render(id, definition).then(({ svg }) => {
-          container.innerHTML = svg
-        })
+        mermaid.render(id, definition)
+          .then(({ svg }) => { container.innerHTML = svg })
+          .catch(() => {
+            container.innerHTML = `<pre style="opacity:0.5;font-size:0.75rem">${definition}</pre>`
+          })
       })
     })
   }, [content])

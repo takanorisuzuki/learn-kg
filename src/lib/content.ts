@@ -3,10 +3,16 @@ import { remark } from 'remark'
 import remarkHtml from 'remark-html'
 import { readFileSync } from 'fs'
 import { join } from 'path'
+import { notFound } from 'next/navigation'
 
 export async function getSessionContent(locale: string, sessionId: string) {
   const filePath = join(process.cwd(), 'docs', locale, `${sessionId}.md`)
-  const raw = readFileSync(filePath, 'utf-8')
+  let raw: string
+  try {
+    raw = readFileSync(filePath, 'utf-8')
+  } catch {
+    notFound()
+  }
   const { data: frontmatter, content } = matter(raw)
   const processedContent = await remark().use(remarkHtml).process(content)
   return { frontmatter, content: processedContent.toString() }
