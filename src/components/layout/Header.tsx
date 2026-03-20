@@ -80,7 +80,7 @@ export default function Header({ locale }: HeaderProps) {
           </div>
 
           <a
-            href="https://github.com/DevRev-JP/tech-blog"
+            href="https://github.com/shareAI-lab/learn-kg"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-sm transition-opacity hover:opacity-70"
