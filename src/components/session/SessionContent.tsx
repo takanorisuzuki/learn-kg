@@ -16,7 +16,14 @@ export default function SessionContent({ content }: SessionContentProps) {
     if (blocks.length === 0) return
 
     import('mermaid').then(({ default: mermaid }) => {
-      mermaid.initialize({ startOnLoad: false, theme: 'dark' })
+      const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: isDark ? 'dark' : 'neutral',
+        themeVariables: isDark
+          ? { background: '#1e1e2e', primaryColor: '#2d2d3f', primaryTextColor: '#e2e8f0', lineColor: '#6b7280' }
+          : { primaryColor: '#eff6ff', primaryTextColor: '#1e3a5f', lineColor: '#6b7280' },
+      })
       blocks.forEach((block, i) => {
         const id = `mermaid-${i}-${Date.now()}`
         const definition = block.textContent ?? ''
