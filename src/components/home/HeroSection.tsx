@@ -1,12 +1,33 @@
 import Link from 'next/link'
 
-const STATS = [
-  { label: 'セッション', value: '12' },
-  { label: '学習時間', value: '約10h' },
-  { label: 'APIキー不要', value: 'Local' },
-]
+const HERO_TEXT = {
+  en: {
+    badge: 'Practical Course for LLM Developers',
+    heading: <>GraphRAG is just the entry point.<br />KG can do so much more.</>,
+    description: 'A 12-session practical course for LLM developers to master Knowledge Graphs systematically. Runs locally with Ollama + Neo4j Docker — no API key required.',
+    cta: 'Start with Session 1',
+    stats: [
+      { label: 'Sessions', value: '12' },
+      { label: 'Learning time', value: '~10h' },
+      { label: 'No API key', value: 'Local' },
+    ],
+  },
+  ja: {
+    badge: 'LLM Developers向け実践コース',
+    heading: <>GraphRAGは入口。<br />KGはもっとできる。</>,
+    description: 'LLM開発者がナレッジグラフを体系的に学ぶ12セッションの実践コース。Ollama + Neo4j Dockerでローカル動作。',
+    cta: 'セッション1から始める',
+    stats: [
+      { label: 'セッション', value: '12' },
+      { label: '学習時間', value: '約10h' },
+      { label: 'APIキー不要', value: 'Local' },
+    ],
+  },
+}
 
 export default function HeroSection({ locale }: { locale: string }) {
+  const t = HERO_TEXT[locale as keyof typeof HERO_TEXT] ?? HERO_TEXT.en
+
   return (
     <div className="relative rounded-2xl overflow-hidden mb-10 px-8 py-12"
       style={{ background: 'linear-gradient(135deg, #1e1b4b 0%, #172554 50%, #052e16 100%)' }}
@@ -25,7 +46,7 @@ export default function HeroSection({ locale }: { locale: string }) {
             className="text-xs font-semibold px-2.5 py-1 rounded-full"
             style={{ backgroundColor: 'rgba(99,102,241,0.3)', color: '#c7d2fe' }}
           >
-            LLM Developers向け実践コース
+            {t.badge}
           </span>
         </div>
 
@@ -33,18 +54,16 @@ export default function HeroSection({ locale }: { locale: string }) {
           className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3 leading-tight"
           style={{ color: '#fafafa' }}
         >
-          GraphRAGは入口。<br />
-          KGはもっとできる。
+          {t.heading}
         </h1>
 
         <p className="text-base mb-8" style={{ color: '#a5b4fc' }}>
-          LLM開発者がナレッジグラフを体系的に学ぶ12セッションの実践コース。
-          Ollama + Neo4j Dockerでローカル動作。
+          {t.description}
         </p>
 
         {/* Stats */}
         <div className="flex flex-wrap gap-3 mb-8">
-          {STATS.map((stat) => (
+          {t.stats.map((stat) => (
             <div
               key={stat.label}
               className="flex items-center gap-2 px-4 py-2.5 rounded-xl"
@@ -61,7 +80,7 @@ export default function HeroSection({ locale }: { locale: string }) {
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-opacity hover:opacity-90"
           style={{ background: 'linear-gradient(135deg, #3b82f6, #6366f1)', color: '#ffffff' }}
         >
-          セッション1から始める
+          {t.cta}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>

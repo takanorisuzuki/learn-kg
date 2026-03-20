@@ -1,15 +1,25 @@
 'use client'
 
 import Link from 'next/link'
-import { LAYERS, SESSION_META, SessionId } from '@/data/sessions'
+import { getLayers, getSessionMeta, SessionId } from '@/data/sessions'
 
 interface SessionGridProps {
   locale: string
 }
 
-const LEVEL_LABEL: Record<string, string> = {
-  beginner: '初級',
-  intermediate: '中級',
+const LEVEL_LABEL: Record<string, Record<string, string>> = {
+  en: { beginner: 'Beginner', intermediate: 'Intermediate' },
+  ja: { beginner: '初級', intermediate: '中級' },
+}
+
+const SESSIONS_SUFFIX: Record<string, string> = {
+  en: ' sessions',
+  ja: 'セッション',
+}
+
+const MIN_SUFFIX: Record<string, string> = {
+  en: 'min',
+  ja: '分',
 }
 
 const LAYER_CONFIG: Record<string, { color: string; bg: string; border: string; hoverBorder: string }> = {
@@ -34,9 +44,15 @@ const LAYER_CONFIG: Record<string, { color: string; bg: string; border: string; 
 }
 
 export default function SessionGrid({ locale }: SessionGridProps) {
+  const layers = getLayers(locale)
+  const sessionMeta = getSessionMeta(locale)
+  const levelLabel = LEVEL_LABEL[locale] ?? LEVEL_LABEL.en
+  const sessionsSuffix = SESSIONS_SUFFIX[locale] ?? SESSIONS_SUFFIX.en
+  const minSuffix = MIN_SUFFIX[locale] ?? MIN_SUFFIX.en
+
   return (
     <div className="space-y-10">
-      {LAYERS.map((layer) => {
+      {layers.map((layer) => {
         const config = LAYER_CONFIG[layer.id]
         return (
           <section key={layer.id}>
@@ -55,13 +71,13 @@ export default function SessionGrid({ locale }: SessionGridProps) {
                 className="text-xs px-2 py-0.5 rounded-full"
                 style={{ backgroundColor: `${config.color}18`, color: config.color }}
               >
-                {layer.sessions.length}セッション
+                {layer.sessions.length}{sessionsSuffix}
               </span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {layer.sessions.map((sessionId) => {
-                const session = SESSION_META[sessionId as SessionId]
+                const session = sessionMeta[sessionId as SessionId]
                 return (
                   <Link
                     key={sessionId}
@@ -96,10 +112,10 @@ export default function SessionGrid({ locale }: SessionGridProps) {
                               : { backgroundColor: 'rgba(245,158,11,0.12)', color: '#F59E0B' }
                           }
                         >
-                          {LEVEL_LABEL[session.level]}
+                          {levelLabel[session.level]}
                         </span>
                         <span className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>
-                          {session.duration}分
+                          {session.duration}{minSuffix}
                         </span>
                       </div>
                     </div>

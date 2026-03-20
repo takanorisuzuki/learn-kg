@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { LAYERS, SESSION_META, SessionId } from '@/data/sessions'
+import { getLayers, getSessionMeta, SessionId } from '@/data/sessions'
 
 interface SidebarProps {
   locale: string
@@ -18,12 +18,16 @@ const LAYER_BG: Record<string, string> = {
   beyond: 'rgba(245,158,11,0.08)',
 }
 
-const LEVEL_LABEL: Record<string, string> = {
-  beginner: '初級',
-  intermediate: '中級',
+const LEVEL_LABEL: Record<string, Record<string, string>> = {
+  en: { beginner: 'Beginner', intermediate: 'Intermediate' },
+  ja: { beginner: '初級', intermediate: '中級' },
 }
 
 export default function Sidebar({ locale, currentSession }: SidebarProps) {
+  const layers = getLayers(locale)
+  const sessionMeta = getSessionMeta(locale)
+  const levelLabel = LEVEL_LABEL[locale] ?? LEVEL_LABEL.en
+
   return (
     <aside
       className="w-60 shrink-0 sticky top-14 self-start h-[calc(100vh-3.5rem)] overflow-y-auto border-r"
@@ -33,7 +37,7 @@ export default function Sidebar({ locale, currentSession }: SidebarProps) {
       }}
     >
       <nav className="p-3 space-y-5">
-        {LAYERS.map((layer) => {
+        {layers.map((layer) => {
           const color = LAYER_COLOR[layer.id]
           const bg = LAYER_BG[layer.id]
           return (
@@ -54,7 +58,7 @@ export default function Sidebar({ locale, currentSession }: SidebarProps) {
               </div>
               <ul className="space-y-0.5">
                 {layer.sessions.map((sessionId) => {
-                  const session = SESSION_META[sessionId as SessionId]
+                  const session = sessionMeta[sessionId as SessionId]
                   const isActive = currentSession === sessionId
                   return (
                     <li key={sessionId}>
@@ -82,7 +86,7 @@ export default function Sidebar({ locale, currentSession }: SidebarProps) {
                               : { backgroundColor: 'rgba(245,158,11,0.12)', color: '#F59E0B' }
                           }
                         >
-                          {LEVEL_LABEL[session.level]}
+                          {levelLabel[session.level]}
                         </span>
                       </Link>
                     </li>

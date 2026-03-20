@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Learn KG - Knowledge Graph for LLM Developers",
-  description: "LLM開発者がナレッジグラフを学ぶ12セッションの実践コース",
+  description: "A 12-session practical course for LLM developers to master Knowledge Graphs.",
 };
 
 export default function RootLayout({
@@ -11,9 +11,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="ja" className="h-full">
-      <body className="min-h-full bg-gray-50">{children}</body>
-    </html>
-  );
+  return children;
 }
