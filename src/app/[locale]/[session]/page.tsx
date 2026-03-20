@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { getSessionContent, getSessionIds } from '@/lib/content'
-import { SESSION_META, SessionId } from '@/data/sessions'
+import { getSessionMeta, SessionId } from '@/data/sessions'
 import SessionContent from '@/components/session/SessionContent'
 import PrevNextNav from '@/components/session/PrevNextNav'
 
@@ -57,7 +57,8 @@ export default async function SessionPage({ params }: SessionPageProps) {
     notFound()
   }
 
-  const meta = SESSION_META[session as SessionId]
+  const sessionMeta = getSessionMeta(locale)
+  const meta = sessionMeta[session as SessionId]
   const { content } = await getSessionContent(locale, session)
   const layerColor = LAYER_COLOR[meta.layer]
   const lang = locale === 'en' ? 'en' : 'ja'
