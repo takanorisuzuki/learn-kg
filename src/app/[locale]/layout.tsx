@@ -1,5 +1,6 @@
 import Header from '@/components/layout/Header'
 import Sidebar from '@/components/layout/Sidebar'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 interface LocaleLayoutProps {
   children: React.ReactNode
@@ -23,6 +24,9 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
             </main>
           </div>
         </div>
+        {process.env.NODE_ENV === 'production' && (
+          <GoogleAnalytics gaId="G-TSTTB1J1Y9" />
+        )}
       </body>
     </html>
   )
