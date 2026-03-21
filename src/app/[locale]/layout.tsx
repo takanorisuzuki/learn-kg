@@ -2,6 +2,9 @@ import Link from 'next/link'
 import Header from '@/components/layout/Header'
 import Sidebar from '@/components/layout/Sidebar'
 import { GoogleAnalytics } from '@next/third-parties/google'
+import { Noto_Sans_JP } from 'next/font/google'
+
+const notoSansJP = Noto_Sans_JP({ subsets: ['latin'], weight: ['400', '500', '700', '900'], display: 'swap', variable: '--font-noto-sans-jp' })
 
 interface LocaleLayoutProps {
   children: React.ReactNode
@@ -13,7 +16,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const isJa = locale === 'ja'
   return (
     <html lang={locale} className="h-full">
-      <body className="min-h-full" style={{ backgroundColor: 'var(--color-bg)' }}>
+      <body className={`min-h-full ${notoSansJP.className}`} style={{ backgroundColor: 'var(--color-bg)' }}>
         <div className="flex flex-col min-h-screen">
           <Header locale={locale} />
           <div className="flex flex-1">

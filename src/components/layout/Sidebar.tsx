@@ -9,15 +9,15 @@ interface SidebarProps {
 }
 
 const LAYER_COLOR: Record<string, string> = {
-  foundations: '#3B82F6',
-  graphrag: '#10B981',
-  beyond: '#F59E0B',
+  foundations: '#dc2626',
+  graphrag: '#ca8a04',
+  beyond: '#166534',
 }
 
 const LAYER_BG: Record<string, string> = {
-  foundations: 'rgba(59,130,246,0.08)',
-  graphrag: 'rgba(16,185,129,0.08)',
-  beyond: 'rgba(245,158,11,0.08)',
+  foundations: 'rgba(220,38,38,0.08)',
+  graphrag: 'rgba(202,138,4,0.08)',
+  beyond: 'rgba(22,101,52,0.08)',
 }
 
 const LEVEL_LABEL: Record<string, Record<string, string>> = {
@@ -86,8 +86,8 @@ export default function Sidebar({ locale }: SidebarProps) {
                           className="shrink-0 text-xs px-1.5 py-0.5 rounded-full mt-0.5"
                           style={
                             session.level === 'beginner'
-                              ? { backgroundColor: 'rgba(16,185,129,0.12)', color: '#10B981' }
-                              : { backgroundColor: 'rgba(245,158,11,0.12)', color: '#F59E0B' }
+                              ? { backgroundColor: 'rgba(202,138,4,0.12)', color: '#ca8a04' }
+                              : { backgroundColor: 'rgba(220,38,38,0.12)', color: '#dc2626' }
                           }
                         >
                           {levelLabel[session.level]}

@@ -30,13 +30,13 @@ export default function HeroSection({ locale }: { locale: string }) {
 
   return (
     <div className="relative rounded-2xl overflow-hidden mb-10 px-8 py-12"
-      style={{ background: 'linear-gradient(135deg, #1e1b4b 0%, #172554 50%, #052e16 100%)' }}
+      style={{ background: 'linear-gradient(135deg, #0d1f17 0%, #1a0a06 50%, #2d1810 100%)' }}
     >
       {/* Background decoration */}
       <div
         className="absolute inset-0 opacity-10"
         style={{
-          backgroundImage: 'radial-gradient(circle at 30% 50%, #6366f1 0%, transparent 50%), radial-gradient(circle at 70% 20%, #10b981 0%, transparent 40%)',
+          backgroundImage: 'radial-gradient(circle at 30% 50%, #dc2626 0%, transparent 50%), radial-gradient(circle at 70% 20%, #ca8a04 0%, transparent 40%)',
         }}
       />
 
@@ -44,7 +44,7 @@ export default function HeroSection({ locale }: { locale: string }) {
         <div className="flex items-center gap-2 mb-4">
           <span
             className="text-xs font-semibold px-2.5 py-1 rounded-full"
-            style={{ backgroundColor: 'rgba(99,102,241,0.3)', color: '#c7d2fe' }}
+            style={{ backgroundColor: 'rgba(202,138,4,0.25)', color: '#fef3c7' }}
           >
             {t.badge}
           </span>
@@ -57,7 +57,7 @@ export default function HeroSection({ locale }: { locale: string }) {
           {t.heading}
         </h1>
 
-        <p className="text-base mb-8" style={{ color: '#a5b4fc' }}>
+        <p className="text-base mb-8" style={{ color: '#d6c9b8' }}>
           {t.description}
         </p>
 
@@ -78,7 +78,7 @@ export default function HeroSection({ locale }: { locale: string }) {
         <Link
           href={`/${locale}/s01`}
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-opacity hover:opacity-90"
-          style={{ background: 'linear-gradient(135deg, #3b82f6, #6366f1)', color: '#ffffff' }}
+          style={{ background: 'linear-gradient(135deg, #dc2626, #b91c1c)', color: '#ffffff' }}
         >
           {t.cta}
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
