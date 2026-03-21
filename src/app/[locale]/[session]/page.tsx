@@ -3,6 +3,7 @@ import { getSessionContent, getSessionIds } from '@/lib/content'
 import { getSessionMeta, SessionId } from '@/data/sessions'
 import SessionContent from '@/components/session/SessionContent'
 import PrevNextNav from '@/components/session/PrevNextNav'
+import SessionCompleteTracker from '@/components/session/SessionCompleteTracker'
 
 interface SessionPageProps {
   params: Promise<{ locale: string; session: string }>
@@ -136,6 +137,7 @@ export default async function SessionPage({ params }: SessionPageProps) {
 
       <SessionContent content={content} />
       <PrevNextNav locale={locale} currentSession={session} />
+      <SessionCompleteTracker sessionId={session} locale={locale} />
     </article>
   )
 }

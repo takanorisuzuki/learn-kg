@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { trackLanguageSwitch } from '@/lib/analytics'
 
 interface HeaderProps {
   locale: string
@@ -47,7 +48,7 @@ export default function Header({ locale }: HeaderProps) {
               backgroundColor: 'var(--color-bg-secondary)',
             }}
           >
-            Knowledge Graph for LLM Developers
+            {locale === 'ja' ? 'LLM開発者のためのナレッジグラフ' : 'Knowledge Graph for LLM Developers'}
           </span>
         </Link>
 
@@ -73,6 +74,7 @@ export default function Header({ locale }: HeaderProps) {
                 backgroundColor: locale === 'en' ? 'var(--color-text)' : 'var(--color-bg)',
                 color: locale === 'en' ? 'var(--color-bg)' : 'var(--color-text-secondary)',
               }}
+              onClick={() => { if (locale !== 'en') trackLanguageSwitch(locale, 'en') }}
             >
               EN
             </Link>
@@ -83,6 +85,7 @@ export default function Header({ locale }: HeaderProps) {
                 backgroundColor: locale === 'ja' ? 'var(--color-text)' : 'var(--color-bg)',
                 color: locale === 'ja' ? 'var(--color-bg)' : 'var(--color-text-secondary)',
               }}
+              onClick={() => { if (locale !== 'ja') trackLanguageSwitch(locale, 'ja') }}
             >
               JA
             </Link>

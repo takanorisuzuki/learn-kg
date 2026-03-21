@@ -171,11 +171,16 @@ const LAYERS_EN = [
   { id: "beyond" as const, label: "Beyond GraphRAG", sessions: ["s07", "s08", "s09", "s10", "s11", "s12"] as SessionId[] },
 ] as const;
 
+const _sessionMetaCache: Partial<Record<string, Record<SessionId, SessionLocalized>>> = {}
+
 export function getSessionMeta(locale: string): Record<SessionId, SessionLocalized> {
+  if (_sessionMetaCache[locale]) return _sessionMetaCache[locale]!
   const text = locale === "ja" ? SESSION_TEXT_JA : SESSION_TEXT_EN;
-  return Object.fromEntries(
+  const result = Object.fromEntries(
     SESSION_ORDER.map((id) => [id, { ...SESSION_BASE[id], ...text[id] }])
   ) as Record<SessionId, SessionLocalized>;
+  _sessionMetaCache[locale] = result
+  return result
 }
 
 export function getLayers(locale: string) {

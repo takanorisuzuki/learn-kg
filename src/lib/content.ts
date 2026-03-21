@@ -14,7 +14,7 @@ export async function getSessionContent(locale: string, sessionId: string) {
     notFound()
   }
   const { data: frontmatter, content } = matter(raw)
-  const processedContent = await remark().use(remarkHtml).process(content)
+  const processedContent = await remark().use(remarkHtml, { sanitize: true }).process(content)
   return { frontmatter, content: processedContent.toString() }
 }
 

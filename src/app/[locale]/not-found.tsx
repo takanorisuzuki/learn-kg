@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 
 export default function NotFound() {
   const pathname = usePathname()
-  const locale = pathname?.split('/')[1] === 'ja' ? 'ja' : 'en'
+  const locale = pathname?.split('/').filter(Boolean)[0] === 'ja' ? 'ja' : 'en'
   const label = locale === 'ja'
     ? { heading: 'ページが見つかりません', desc: '指定されたセッションまたはページは存在しません。', back: 'コース一覧に戻る' }
     : { heading: 'Page not found', desc: 'The session or page you are looking for does not exist.', back: 'Back to course' }

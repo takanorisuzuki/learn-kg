@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Header from '@/components/layout/Header'
 import Sidebar from '@/components/layout/Sidebar'
 import { GoogleAnalytics } from '@next/third-parties/google'
@@ -9,6 +10,7 @@ interface LocaleLayoutProps {
 
 export default async function LocaleLayout({ children, params }: LocaleLayoutProps) {
   const { locale } = await params
+  const isJa = locale === 'ja'
   return (
     <html lang={locale} className="h-full">
       <body className="min-h-full" style={{ backgroundColor: 'var(--color-bg)' }}>
@@ -23,6 +25,11 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
               {children}
             </main>
           </div>
+          <footer className="text-center py-4 text-xs" style={{ color: 'var(--color-text-secondary)', borderTop: '1px solid var(--color-border)' }}>
+            <Link href={`/${locale}/privacy`} className="underline hover:opacity-80">
+              {isJa ? 'プライバシーポリシー' : 'Privacy Policy'}
+            </Link>
+          </footer>
         </div>
         {process.env.NODE_ENV === 'production' && (
           <GoogleAnalytics gaId="G-TSTTB1J1Y9" />

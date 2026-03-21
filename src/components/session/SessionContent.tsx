@@ -19,6 +19,7 @@ export default function SessionContent({ content }: SessionContentProps) {
       const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
       mermaid.initialize({
         startOnLoad: false,
+        securityLevel: 'strict',
         theme: isDark ? 'dark' : 'neutral',
         themeVariables: isDark
           ? { background: '#1e1e2e', primaryColor: '#2d2d3f', primaryTextColor: '#e2e8f0', lineColor: '#6b7280' }
@@ -33,7 +34,10 @@ export default function SessionContent({ content }: SessionContentProps) {
         mermaid.render(id, definition)
           .then(({ svg }) => { container.innerHTML = svg })
           .catch(() => {
-            container.innerHTML = `<pre style="opacity:0.5;font-size:0.75rem">${definition}</pre>`
+            const pre = document.createElement('pre')
+            pre.style.cssText = 'opacity:0.5;font-size:0.75rem'
+            pre.textContent = definition
+            container.appendChild(pre)
           })
       })
     })
