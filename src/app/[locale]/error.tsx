@@ -4,8 +4,8 @@ import Link from 'next/link'
 
 export default function Error({ reset }: { reset: () => void }) {
   const pathname = usePathname()
-  const locale = pathname?.split('/').filter(Boolean)[0] === 'ja' ? 'ja' : 'en'
-  const isJa = locale === 'ja'
+  const isJa = pathname?.split('/').filter(Boolean)[0] === 'ja'
+  const locale = isJa ? 'ja' : 'en'
   return (
     <div className="flex flex-col items-center justify-center py-32 text-center">
       <p className="text-5xl font-bold mb-4" style={{ color: 'var(--color-text-secondary)' }}>Error</p>
