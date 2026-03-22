@@ -1,6 +1,6 @@
 export const SESSION_ORDER = [
   "s01", "s02", "s03", "s04", "s05", "s06",
-  "s07", "s08", "s09", "s10", "s11", "s12"
+  "s07", "s08", "s09", "s10", "s11", "s12", "s13"
 ] as const;
 
 export type SessionId = typeof SESSION_ORDER[number];
@@ -31,6 +31,7 @@ const SESSION_BASE: Record<SessionId, SessionBase> = {
   s10: { id: "s10", level: "intermediate", layer: "beyond", duration: 60 },
   s11: { id: "s11", level: "intermediate", layer: "beyond", duration: 60 },
   s12: { id: "s12", level: "intermediate", layer: "beyond", duration: 60 },
+  s13: { id: "s13", level: "intermediate", layer: "beyond", duration: 60 },
 };
 
 const SESSION_TEXT_JA: Record<SessionId, { title: string; subtitle: string; keyInsight: string }> = {
@@ -85,11 +86,16 @@ const SESSION_TEXT_JA: Record<SessionId, { title: string; subtitle: string; keyI
     keyInsight: "KGをエージェントの構造化メモリとして使い、実行履歴・知識・コンテキストを保持できる",
   },
   s11: {
+    title: "KGをエージェントに読ませる規約",
+    subtitle: "Graph Traversal Contract",
+    keyInsight: "エージェントがKGを幻覚なく正確に読むためには、探索規約（Traversal Contract）を Skill に明示することで再現性を確保できる",
+  },
+  s12: {
     title: "スモールスタートで始めるKG実装戦略",
     subtitle: "Phase 1 → 2 → 3 Migration",
     keyInsight: "Phase1（ローカル実験）からPhase3（本番）への段階的移行で、KG導入リスクを最小化できる",
   },
-  s12: {
+  s13: {
     title: "KGプロジェクトの評価と継続改善",
     subtitle: "Measure What Matters",
     keyInsight: "評価データセットと自動評価スクリプトで定量的に測定するサイクルを確立できる",
@@ -148,11 +154,16 @@ const SESSION_TEXT_EN: Record<SessionId, { title: string; subtitle: string; keyI
     keyInsight: "Use KG as structured agent memory to persist execution history, knowledge, and context across sessions.",
   },
   s11: {
+    title: "How to Make Agents Read Your KG Correctly",
+    subtitle: "Graph Traversal Contract",
+    keyInsight: "To make agents traverse your KG accurately without hallucination, define a Graph Traversal Contract in the Skill — fixing entry points, relation directions, hop limits, and evidence requirements.",
+  },
+  s12: {
     title: "KG Adoption Strategy: Start Small",
     subtitle: "Phase 1 → 2 → 3 Migration",
     keyInsight: "Minimize adoption risk by migrating incrementally from local experiments (Phase 1) to production (Phase 3).",
   },
-  s12: {
+  s13: {
     title: "Measuring and Improving Your KG Project",
     subtitle: "Measure What Matters",
     keyInsight: "Establish a quantitative measurement cycle with evaluation datasets and automated scoring scripts.",
@@ -162,13 +173,13 @@ const SESSION_TEXT_EN: Record<SessionId, { title: string; subtitle: string; keyI
 const LAYERS_JA = [
   { id: "foundations" as const, label: "KG基礎", sessions: ["s01", "s02", "s03"] as SessionId[] },
   { id: "graphrag" as const, label: "GraphRAG実装", sessions: ["s04", "s05", "s06"] as SessionId[] },
-  { id: "beyond" as const, label: "KGを超えて使う", sessions: ["s07", "s08", "s09", "s10", "s11", "s12"] as SessionId[] },
+  { id: "beyond" as const, label: "KGを超えて使う", sessions: ["s07", "s08", "s09", "s10", "s11", "s12", "s13"] as SessionId[] },
 ] as const;
 
 const LAYERS_EN = [
   { id: "foundations" as const, label: "KG Foundations", sessions: ["s01", "s02", "s03"] as SessionId[] },
   { id: "graphrag" as const, label: "GraphRAG in Practice", sessions: ["s04", "s05", "s06"] as SessionId[] },
-  { id: "beyond" as const, label: "Beyond GraphRAG", sessions: ["s07", "s08", "s09", "s10", "s11", "s12"] as SessionId[] },
+  { id: "beyond" as const, label: "Beyond GraphRAG", sessions: ["s07", "s08", "s09", "s10", "s11", "s12", "s13"] as SessionId[] },
 ] as const;
 
 const _sessionMetaCache: Partial<Record<string, Record<SessionId, SessionLocalized>>> = {}

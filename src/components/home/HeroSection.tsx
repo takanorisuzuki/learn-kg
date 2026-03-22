@@ -4,10 +4,10 @@ const HERO_TEXT = {
   en: {
     badge: 'Practical Course for LLM Developers',
     heading: <>GraphRAG is just the entry point.<br />KG can do so much more.</>,
-    description: 'A 12-session practical course for LLM developers to master Knowledge Graphs systematically. Runs locally with Ollama + Neo4j Docker — no API key required.',
+    description: 'A 13-session practical course for LLM developers to master Knowledge Graphs systematically. Runs locally with Ollama + Neo4j Docker — no API key required.',
     cta: 'Start with Session 1',
     stats: [
-      { label: 'Sessions', value: '12' },
+      { label: 'Sessions', value: '13' },
       { label: 'Learning time', value: '~10h' },
       { label: 'No API key', value: 'Local' },
     ],
@@ -15,10 +15,10 @@ const HERO_TEXT = {
   ja: {
     badge: 'LLM Developers向け実践コース',
     heading: <>GraphRAGは入口。<br />KGはもっとできる。</>,
-    description: 'LLM開発者がナレッジグラフを体系的に学ぶ12セッションの実践コース。Ollama + Neo4j Dockerでローカル動作。',
+    description: 'LLM開発者がナレッジグラフを体系的に学ぶ13セッションの実践コース。Ollama + Neo4j Dockerでローカル動作。',
     cta: 'セッション1から始める',
     stats: [
-      { label: 'セッション', value: '12' },
+      { label: 'セッション', value: '13' },
       { label: '学習時間', value: '約10h' },
       { label: 'APIキー不要', value: 'Local' },
     ],
