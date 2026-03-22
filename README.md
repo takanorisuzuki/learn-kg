@@ -2,7 +2,7 @@
 
 # Learn KG — Knowledge Graph for LLM Developers
 
-**A 12-session practical course for LLM developers to master Knowledge Graphs.**
+**A 13-session practical course for LLM developers to master Knowledge Graphs.**
 
 Live site: [learn-kg.vercel.app](https://learn-kg.vercel.app)
 — [English](https://learn-kg.vercel.app/en) · [日本語](https://learn-kg.vercel.app/ja)
@@ -19,7 +19,7 @@ LLM developers who have tried RAG and hit its limits:
 
 This course teaches you how to combine LLMs with a Knowledge Graph to build systems that are **accurate, traceable, and structurally queryable** — using only local tools, no paid APIs.
 
-**After 12 sessions you will be able to:**
+**After 13 sessions you will be able to:**
 - Run Neo4j + Ollama locally with Docker Compose
 - Extract a KG from unstructured text automatically with LLMGraphTransformer
 - Build a GraphRAG pipeline with schema-aware Cypher generation
