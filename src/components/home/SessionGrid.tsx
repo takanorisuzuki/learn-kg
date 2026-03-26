@@ -25,21 +25,21 @@ const MIN_SUFFIX: Record<string, string> = {
 const LAYER_CONFIG: Record<string, { color: string; bg: string; border: string; hoverBorder: string }> = {
   foundations: {
     color: '#0070C0',
-    bg: 'rgba(0,112,192,0.04)',
-    border: 'rgba(0,112,192,0.15)',
-    hoverBorder: 'rgba(0,112,192,0.4)',
+    bg: '#FFFFFF',
+    border: 'rgba(0,112,192,0.30)',
+    hoverBorder: 'rgba(0,112,192,0.65)',
   },
   graphrag: {
     color: '#0891B2',
-    bg: 'rgba(8,145,178,0.04)',
-    border: 'rgba(8,145,178,0.15)',
-    hoverBorder: 'rgba(8,145,178,0.4)',
+    bg: '#FFFFFF',
+    border: 'rgba(8,145,178,0.30)',
+    hoverBorder: 'rgba(8,145,178,0.65)',
   },
   beyond: {
     color: '#7C3AED',
-    bg: 'rgba(124,58,237,0.04)',
-    border: 'rgba(124,58,237,0.15)',
-    hoverBorder: 'rgba(124,58,237,0.4)',
+    bg: '#FFFFFF',
+    border: 'rgba(124,58,237,0.30)',
+    hoverBorder: 'rgba(124,58,237,0.65)',
   },
 }
 

@@ -4,14 +4,14 @@
   --color-layer-foundations: #0070C0;
   --color-layer-graphrag: #0891B2;
   --color-layer-beyond: #7C3AED;
-  --color-bg: #FFFFFF;
-  --color-bg-secondary: #F8F9FA;
+  --color-bg: #F5F8FC;
+  --color-bg-secondary: #E8EEF6;
   --color-text: #1A202C;
-  --color-text-secondary: #718096;
-  --color-border: #E2E8F0;
+  --color-text-secondary: #4A5568;
+  --color-border: #C9D5E3;
   --color-primary: #0070C0;
   --color-primary-hover: #005A9E;
-  --background: #FFFFFF;
+  --background: #F5F8FC;
   --foreground: #1A202C;
 }
 
