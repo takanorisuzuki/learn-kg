@@ -30,7 +30,7 @@ export default function Header({ locale }: HeaderProps) {
         >
           <div
             className="w-7 h-7 rounded-lg flex items-center justify-center text-white text-xs font-bold"
-            style={{ background: 'linear-gradient(135deg, #dc2626, #ca8a04)' }}
+            style={{ background: 'linear-gradient(135deg, #0070C0, #0891B2)' }}
           >
             KG
           </div>

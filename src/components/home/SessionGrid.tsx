@@ -24,22 +24,22 @@ const MIN_SUFFIX: Record<string, string> = {
 
 const LAYER_CONFIG: Record<string, { color: string; bg: string; border: string; hoverBorder: string }> = {
   foundations: {
-    color: '#3B82F6',
-    bg: 'rgba(59,130,246,0.05)',
-    border: 'rgba(59,130,246,0.15)',
-    hoverBorder: 'rgba(59,130,246,0.4)',
+    color: '#0070C0',
+    bg: 'rgba(0,112,192,0.04)',
+    border: 'rgba(0,112,192,0.15)',
+    hoverBorder: 'rgba(0,112,192,0.4)',
   },
   graphrag: {
-    color: '#10B981',
-    bg: 'rgba(16,185,129,0.05)',
-    border: 'rgba(16,185,129,0.15)',
-    hoverBorder: 'rgba(16,185,129,0.4)',
+    color: '#0891B2',
+    bg: 'rgba(8,145,178,0.04)',
+    border: 'rgba(8,145,178,0.15)',
+    hoverBorder: 'rgba(8,145,178,0.4)',
   },
   beyond: {
-    color: '#F59E0B',
-    bg: 'rgba(245,158,11,0.05)',
-    border: 'rgba(245,158,11,0.15)',
-    hoverBorder: 'rgba(245,158,11,0.4)',
+    color: '#7C3AED',
+    bg: 'rgba(124,58,237,0.04)',
+    border: 'rgba(124,58,237,0.15)',
+    hoverBorder: 'rgba(124,58,237,0.4)',
   },
 }
 
@@ -108,8 +108,8 @@ export default function SessionGrid({ locale }: SessionGridProps) {
                           className="text-xs px-1.5 py-0.5 rounded-full"
                           style={
                             session.level === 'beginner'
-                              ? { backgroundColor: 'rgba(16,185,129,0.12)', color: '#10B981' }
-                              : { backgroundColor: 'rgba(245,158,11,0.12)', color: '#F59E0B' }
+                              ? { backgroundColor: 'rgba(0,112,192,0.10)', color: '#0070C0' }
+                              : { backgroundColor: 'rgba(8,145,178,0.10)', color: '#0891B2' }
                           }
                         >
                           {levelLabel[session.level]}

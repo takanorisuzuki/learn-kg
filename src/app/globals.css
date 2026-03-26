@@ -1,16 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --color-layer-foundations: #dc2626;
-  --color-layer-graphrag: #ca8a04;
-  --color-layer-beyond: #166534;
-  --color-bg: #faf7f0;
-  --color-bg-secondary: #f0ebe0;
-  --color-text: #1c1412;
-  --color-text-secondary: #6b5c52;
-  --color-border: #d6c9b8;
-  --background: #faf7f0;
-  --foreground: #1c1412;
+  --color-layer-foundations: #0070C0;
+  --color-layer-graphrag: #0891B2;
+  --color-layer-beyond: #7C3AED;
+  --color-bg: #FFFFFF;
+  --color-bg-secondary: #F8F9FA;
+  --color-text: #1A202C;
+  --color-text-secondary: #718096;
+  --color-border: #E2E8F0;
+  --color-primary: #0070C0;
+  --color-primary-hover: #005A9E;
+  --background: #FFFFFF;
+  --foreground: #1A202C;
 }
 
 @theme inline {
@@ -22,13 +24,15 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #0d1f17;
-    --color-bg-secondary: #162b1f;
-    --color-text: #f5f0e8;
-    --color-text-secondary: #a09585;
-    --color-border: #2d4a38;
-    --background: #0d1f17;
-    --foreground: #f5f0e8;
+    --color-bg: #0F172A;
+    --color-bg-secondary: #1E293B;
+    --color-text: #F1F5F9;
+    --color-text-secondary: #94A3B8;
+    --color-border: #334155;
+    --color-primary: #3B9EFF;
+    --color-primary-hover: #60B0FF;
+    --background: #0F172A;
+    --foreground: #F1F5F9;
   }
 }
 
@@ -59,12 +63,12 @@ body {
   line-height: 2rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: #1c1412;
+  color: #1A202C;
 }
 
 @media (prefers-color-scheme: dark) {
   .prose-custom h1 {
-    color: #f5f0e8;
+    color: #F1F5F9;
   }
 }
 
@@ -76,14 +80,14 @@ body {
   line-height: 1.75rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  color: #1c1412;
-  border-bottom: 1px solid #d6c9b8;
+  color: #1A202C;
+  border-bottom: 1px solid #E2E8F0;
 }
 
 @media (prefers-color-scheme: dark) {
   .prose-custom h2 {
-    color: #f5f0e8;
-    border-bottom-color: #2d4a38;
+    color: #F1F5F9;
+    border-bottom-color: #334155;
   }
 }
 
@@ -93,12 +97,12 @@ body {
   font-size: 1.0625rem;
   line-height: 1.5rem;
   font-weight: 600;
-  color: #2d1810;
+  color: #2D3748;
 }
 
 @media (prefers-color-scheme: dark) {
   .prose-custom h3 {
-    color: #e8e0d4;
+    color: #E2E8F0;
   }
 }
 
@@ -108,12 +112,12 @@ body {
   font-size: 0.9375rem;
   line-height: 1.5rem;
   font-weight: 600;
-  color: #3d2a20;
+  color: #4A5568;
 }
 
 @media (prefers-color-scheme: dark) {
   .prose-custom h4 {
-    color: #d6c9b8;
+    color: #CBD5E0;
   }
 }
 
@@ -122,12 +126,12 @@ body {
   margin-bottom: 0.75rem;
   font-size: 0.9rem;
   line-height: 1.7;
-  color: #5c4a3e;
+  color: #4A5568;
 }
 
 @media (prefers-color-scheme: dark) {
   .prose-custom p {
-    color: #c8bdb0;
+    color: #A0AEC0;
   }
 }
 
@@ -138,7 +142,7 @@ body {
   margin-bottom: 1.5rem;
   border-left: none;
   border-radius: 0.75rem;
-  background: linear-gradient(135deg, #faf0e6 0%, #f0f5ea 100%);
+  background: linear-gradient(135deg, #EBF4FF 0%, #E0F2FE 100%);
   padding: 1.25rem 1.5rem 1.25rem 1.75rem;
   font-style: normal;
   overflow: hidden;
@@ -151,7 +155,7 @@ body {
   top: 0;
   bottom: 0;
   width: 4px;
-  background: linear-gradient(to bottom, #dc2626, #ca8a04);
+  background: linear-gradient(to bottom, #0070C0, #0891B2);
   border-radius: 4px 0 0 4px;
 }
 
@@ -159,42 +163,42 @@ body {
   font-size: 0.95rem;
   line-height: 1.65;
   font-weight: 500;
-  color: #7f1d1d;
+  color: #1E40AF;
   margin: 0;
 }
 
 @media (prefers-color-scheme: dark) {
   .prose-custom blockquote.hero-callout {
-    background: linear-gradient(135deg, #1a0a06 0%, #091510 100%);
+    background: linear-gradient(135deg, #0C1A2E 0%, #0A1929 100%);
   }
   .prose-custom blockquote.hero-callout p {
-    color: #fca5a5;
+    color: #93C5FD;
   }
 }
 
 .prose-custom blockquote {
   margin-top: 1rem;
   margin-bottom: 1rem;
-  border-left: 3px solid #ca8a04;
+  border-left: 3px solid #0070C0;
   border-radius: 0 0.5rem 0.5rem 0;
-  background-color: #fef9ec;
+  background-color: #EBF8FF;
   padding: 0.75rem 1rem;
   font-style: normal;
 }
 
 .prose-custom blockquote p {
-  color: #78350f;
+  color: #1A4E7A;
   font-size: 0.875rem;
   margin: 0;
 }
 
 @media (prefers-color-scheme: dark) {
   .prose-custom blockquote {
-    border-left-color: #ca8a04;
-    background-color: rgba(202, 138, 4, 0.1);
+    border-left-color: #3B9EFF;
+    background-color: rgba(59, 158, 255, 0.08);
   }
   .prose-custom blockquote p {
-    color: #fde68a;
+    color: #93C5FD;
   }
 }
 
@@ -205,8 +209,8 @@ body {
   margin-top: 1rem;
   margin-bottom: 1rem;
   border-radius: 0.75rem;
-  border: 1px solid #1a3020;
-  background-color: #091510;
+  border: 1px solid #1E3A5F;
+  background-color: #0D1B2A;
   padding: 1.25rem;
   font-size: 0.8125rem;
   line-height: 1.6;
@@ -224,7 +228,7 @@ body {
   top: 0;
   right: 0.75rem;
   padding: 0.125rem 0.625rem 0.25rem;
-  background: #dc2626;
+  background: #0070C0;
   color: #ffffff;
   font-size: 0.625rem;
   font-weight: 700;
@@ -236,15 +240,15 @@ body {
 
 .prose-custom pre.code-block[data-language="sh"]::before,
 .prose-custom pre.code-block[data-language="bash"]::before {
-  background: #ca8a04;
+  background: #0891B2;
   content: "terminal";
 }
 
 /* ASCII diagram containers */
 .prose-custom pre.ascii-diagram {
-  background: linear-gradient(135deg, #faf7f0, #f0ebe0);
-  border: 1px solid #d6c9b8;
-  color: #3d2a20;
+  background: linear-gradient(135deg, #F0F9FF, #E0F2FE);
+  border: 1px solid #BAE6FD;
+  color: #1E3A5F;
   text-align: center;
   font-size: 0.75rem;
   line-height: 1.35;
@@ -253,53 +257,53 @@ body {
 
 @media (prefers-color-scheme: dark) {
   .prose-custom pre.ascii-diagram {
-    background: linear-gradient(135deg, #162b1f, #0d1f17);
-    border-color: #2d4a38;
-    color: #c8bdb0;
+    background: linear-gradient(135deg, #1E293B, #0F172A);
+    border-color: #334155;
+    color: #94A3B8;
   }
 }
 
 /* Inline code */
 .prose-custom :not(pre) > code {
   border-radius: 0.375rem;
-  background-color: #f0ebe0;
-  border: 1px solid #d6c9b8;
+  background-color: #EBF8FF;
+  border: 1px solid #BAE6FD;
   padding: 0.125rem 0.425rem;
   font-size: 0.8125rem;
   font-weight: 500;
-  color: #dc2626;
+  color: #0070C0;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   .prose-custom :not(pre) > code {
-    background-color: #162b1f;
-    border-color: #2d4a38;
-    color: #fca5a5;
+    background-color: #1E293B;
+    border-color: #334155;
+    color: #60A5FA;
   }
 }
 
 /* Links */
 .prose-custom a {
-  color: #dc2626;
+  color: #0070C0;
   font-weight: 500;
   text-decoration: underline;
-  text-decoration-color: #fca5a5;
+  text-decoration-color: #BAE6FD;
   text-underline-offset: 2px;
   transition: text-decoration-color 0.15s;
 }
 
 .prose-custom a:hover {
-  text-decoration-color: #dc2626;
+  text-decoration-color: #0070C0;
 }
 
 @media (prefers-color-scheme: dark) {
   .prose-custom a {
-    color: #f87171;
-    text-decoration-color: #7f1d1d;
+    color: #60A5FA;
+    text-decoration-color: #1E3A5F;
   }
   .prose-custom a:hover {
-    text-decoration-color: #f87171;
+    text-decoration-color: #60A5FA;
   }
 }
 
@@ -310,12 +314,12 @@ body {
   padding-left: 1.5rem;
   font-size: 0.9rem;
   line-height: 1.7;
-  color: #5c4a3e;
+  color: #4A5568;
 }
 
 @media (prefers-color-scheme: dark) {
   .prose-custom ul {
-    color: #c8bdb0;
+    color: #A0AEC0;
   }
 }
 
@@ -326,7 +330,7 @@ body {
 }
 
 .prose-custom ul > li::marker {
-  color: #dc2626;
+  color: #0070C0;
 }
 
 .prose-custom ol {
@@ -337,12 +341,12 @@ body {
   counter-reset: step-counter;
   font-size: 0.9rem;
   line-height: 1.7;
-  color: #5c4a3e;
+  color: #4A5568;
 }
 
 @media (prefers-color-scheme: dark) {
   .prose-custom ol {
-    color: #c8bdb0;
+    color: #A0AEC0;
   }
 }
 
@@ -365,7 +369,7 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
-  background: linear-gradient(135deg, #dc2626, #ca8a04);
+  background: linear-gradient(135deg, #0070C0, #0891B2);
   color: #ffffff;
   font-size: 0.75rem;
   font-weight: 700;
@@ -396,12 +400,12 @@ body {
   line-height: 1.5;
   border-radius: 0.75rem;
   overflow: hidden;
-  border: 1px solid #d6c9b8;
+  border: 1px solid #E2E8F0;
 }
 
 @media (prefers-color-scheme: dark) {
   .prose-custom table {
-    border-color: #2d4a38;
+    border-color: #334155;
   }
 }
 
@@ -412,29 +416,29 @@ body {
   font-size: 0.6875rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #6b5c52;
-  background-color: #f0ebe0;
-  border-bottom: 1px solid #d6c9b8;
+  color: #718096;
+  background-color: #F8F9FA;
+  border-bottom: 1px solid #E2E8F0;
 }
 
 @media (prefers-color-scheme: dark) {
   .prose-custom th {
-    color: #a09585;
-    background-color: #162b1f;
-    border-bottom-color: #2d4a38;
+    color: #94A3B8;
+    background-color: #1E293B;
+    border-bottom-color: #334155;
   }
 }
 
 .prose-custom td {
   padding: 0.625rem 1rem;
-  border-bottom: 1px solid #f0ebe0;
-  color: #5c4a3e;
+  border-bottom: 1px solid #F1F5F9;
+  color: #4A5568;
 }
 
 @media (prefers-color-scheme: dark) {
   .prose-custom td {
-    border-bottom-color: #162b1f;
-    color: #c8bdb0;
+    border-bottom-color: #1E293B;
+    color: #A0AEC0;
   }
 }
 
@@ -443,12 +447,12 @@ body {
 }
 
 .prose-custom tbody tr:hover {
-  background-color: #f0ebe0;
+  background-color: #F0F9FF;
 }
 
 @media (prefers-color-scheme: dark) {
   .prose-custom tbody tr:hover {
-    background-color: #162b1f;
+    background-color: #1E293B;
   }
 }
 
@@ -458,34 +462,34 @@ body {
   margin-bottom: 2rem;
   border: none;
   height: 1px;
-  background: linear-gradient(to right, transparent, #d6c9b8, transparent);
+  background: linear-gradient(to right, transparent, #E2E8F0, transparent);
 }
 
 @media (prefers-color-scheme: dark) {
   .prose-custom hr {
-    background: linear-gradient(to right, transparent, #2d4a38, transparent);
+    background: linear-gradient(to right, transparent, #334155, transparent);
   }
 }
 
 .prose-custom strong {
   font-weight: 700;
-  color: #1c1412;
+  color: #1A202C;
 }
 
 @media (prefers-color-scheme: dark) {
   .prose-custom strong {
-    color: #f5f0e8;
+    color: #F1F5F9;
   }
 }
 
 .prose-custom em {
   font-style: italic;
-  color: #6b5c52;
+  color: #718096;
 }
 
 @media (prefers-color-scheme: dark) {
   .prose-custom em {
-    color: #a09585;
+    color: #94A3B8;
   }
 }
 
