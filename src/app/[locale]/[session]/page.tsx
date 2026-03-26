@@ -102,8 +102,8 @@ export default async function SessionPage({ params }: SessionPageProps) {
             className="text-xs px-2 py-0.5 rounded-full"
             style={
               meta.level === 'beginner'
-                ? { backgroundColor: 'rgba(16,185,129,0.12)', color: '#059669' }
-                : { backgroundColor: 'rgba(245,158,11,0.12)', color: '#D97706' }
+                ? { backgroundColor: 'var(--color-level-beginner-bg)', color: 'var(--color-level-beginner)' }
+                : { backgroundColor: 'var(--color-level-intermediate-bg)', color: 'var(--color-level-intermediate)' }
             }
           >
             {LEVEL_LABEL[lang][meta.level]}

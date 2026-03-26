@@ -86,8 +86,8 @@ export default function Sidebar({ locale }: SidebarProps) {
                           className="shrink-0 text-xs px-1.5 py-0.5 rounded-full mt-0.5"
                           style={
                             session.level === 'beginner'
-                              ? { backgroundColor: 'rgba(16,185,129,0.12)', color: '#059669' }
-                              : { backgroundColor: 'rgba(245,158,11,0.12)', color: '#D97706' }
+                              ? { backgroundColor: 'var(--color-level-beginner-bg)', color: 'var(--color-level-beginner)' }
+                              : { backgroundColor: 'var(--color-level-intermediate-bg)', color: 'var(--color-level-intermediate)' }
                           }
                         >
                           {levelLabel[session.level]}

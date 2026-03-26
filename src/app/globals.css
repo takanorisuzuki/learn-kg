@@ -13,6 +13,10 @@
   --color-primary-hover: #005A9E;
   --background: #F5F8FC;
   --foreground: #1A202C;
+  --color-level-beginner: #059669;
+  --color-level-beginner-bg: rgba(16, 185, 129, 0.12);
+  --color-level-intermediate: #D97706;
+  --color-level-intermediate-bg: rgba(245, 158, 11, 0.12);
 }
 
 @theme inline {
@@ -33,6 +37,10 @@
     --color-primary-hover: #60B0FF;
     --background: #0F172A;
     --foreground: #F1F5F9;
+    --color-level-beginner: #34D399;
+    --color-level-beginner-bg: rgba(52, 211, 153, 0.15);
+    --color-level-intermediate: #FBBF24;
+    --color-level-intermediate-bg: rgba(251, 191, 36, 0.15);
   }
 }
 
