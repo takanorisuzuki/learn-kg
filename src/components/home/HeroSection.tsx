@@ -3,8 +3,8 @@ import Link from 'next/link'
 const HERO_TEXT = {
   en: {
     badge: 'Practical Course for LLM Developers',
-    heading: <>Learn with Neo4j. Try with DevRev OSS.<br />Master Knowledge Graphs in 13 Sessions.</>,
-    description: "The first 7 sessions cover GraphRAG development with Neo4j and LangChain. The final 6 sessions walk you through enterprise KG design using DevRev's open-source stack. Runs entirely on local. No API key required.",
+    heading: <>GraphRAG is just the entry point.<br />KG can do so much more.</>,
+    description: 'A 13-session hands-on course for LLM developers. Build GraphRAG pipelines with Neo4j and LangChain, then explore advanced KG patterns for real-world systems. Runs locally with Ollama + Neo4j Docker — no API key required.',
     cta: 'Start with Session 1',
     stats: [
       { label: 'Sessions', value: '13' },
@@ -14,8 +14,8 @@ const HERO_TEXT = {
   },
   ja: {
     badge: 'LLM開発者向け実践コース',
-    heading: <>Neo4jで学び、DevRevのOSSで試す。<br />ナレッジグラフの全体像を13セッションで。</>,
-    description: '前半7セッションでNeo4j + LangChainによるGraphRAG構築を習得。後半6セッションでDevRevのOSSを使ったエンタープライズKG設計を体験する。ローカル環境のみで動作。APIキー不要。',
+    heading: <>GraphRAGは入口。<br />KGはもっとできる。</>,
+    description: 'LLM開発者がナレッジグラフを体系的に学ぶ13セッションの実践コース。Neo4j + LangChainでGraphRAGを構築し、実システム向けの高度なKGパターンまで習得する。Ollama + Neo4j Dockerでローカル動作。APIキー不要。',
     cta: 'セッション1から始める',
     stats: [
       { label: 'セッション', value: '13' },

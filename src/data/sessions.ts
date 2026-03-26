@@ -171,15 +171,15 @@ const SESSION_TEXT_EN: Record<SessionId, { title: string; subtitle: string; keyI
 };
 
 const LAYERS_JA = [
-  { id: "foundations" as const, label: "KGの基礎を理解する", sessions: ["s01", "s02", "s03"] as SessionId[] },
-  { id: "graphrag" as const, label: "Neo4jでGraphRAGを実装する", sessions: ["s04", "s05", "s06"] as SessionId[] },
-  { id: "beyond" as const, label: "DevRev OSSでエンタープライズKGを体験する", sessions: ["s07", "s08", "s09", "s10", "s11", "s12", "s13"] as SessionId[] },
+  { id: "foundations" as const, label: "KG基礎", sessions: ["s01", "s02", "s03"] as SessionId[] },
+  { id: "graphrag" as const, label: "GraphRAG実装", sessions: ["s04", "s05", "s06"] as SessionId[] },
+  { id: "beyond" as const, label: "実システムへの応用", sessions: ["s07", "s08", "s09", "s10", "s11", "s12", "s13"] as SessionId[] },
 ] as const;
 
 const LAYERS_EN = [
-  { id: "foundations" as const, label: "Understanding Knowledge Graphs", sessions: ["s01", "s02", "s03"] as SessionId[] },
+  { id: "foundations" as const, label: "KG Foundations", sessions: ["s01", "s02", "s03"] as SessionId[] },
   { id: "graphrag" as const, label: "GraphRAG with Neo4j", sessions: ["s04", "s05", "s06"] as SessionId[] },
-  { id: "beyond" as const, label: "Enterprise KG with DevRev OSS", sessions: ["s07", "s08", "s09", "s10", "s11", "s12", "s13"] as SessionId[] },
+  { id: "beyond" as const, label: "Beyond GraphRAG", sessions: ["s07", "s08", "s09", "s10", "s11", "s12", "s13"] as SessionId[] },
 ] as const;
 
 const _sessionMetaCache: Partial<Record<string, Record<SessionId, SessionLocalized>>> = {}
