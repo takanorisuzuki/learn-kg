@@ -28,10 +28,24 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
               {children}
             </main>
           </div>
-          <footer className="text-center py-4 text-xs" style={{ color: 'var(--color-text-secondary)', borderTop: '1px solid var(--color-border)' }}>
-            <Link href={`/${locale}/privacy`} className="underline hover:opacity-80">
-              {isJa ? 'プライバシーポリシー' : 'Privacy Policy'}
-            </Link>
+          <footer className="text-center py-4 text-xs space-y-1" style={{ color: 'var(--color-text-secondary)', borderTop: '1px solid var(--color-border)' }}>
+            <div>
+              <Link href={`/${locale}/privacy`} className="underline hover:opacity-80">
+                {isJa ? 'プライバシーポリシー' : 'Privacy Policy'}
+              </Link>
+            </div>
+            <div>
+              Special Thanks:{' '}
+              <a
+                href="https://github.com/shareAI-lab/learn-claude-code"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:opacity-80"
+              >
+                shareAI-lab/learn-claude-code
+              </a>
+              {isJa ? ' — UI・構成のインスピレーション元' : ' — for UI & flow inspiration'}
+            </div>
           </footer>
         </div>
         {process.env.NODE_ENV === 'production' && (
