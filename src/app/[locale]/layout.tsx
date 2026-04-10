@@ -36,7 +36,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
               </Link>
             </div>
             <div>
-              Special Thanks:{' '}
+              {isJa ? 'スペシャルサンクス' : 'Special Thanks'}:{' '}
               <a
                 href="https://github.com/shareAI-lab/learn-claude-code"
                 target="_blank"
@@ -52,7 +52,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         {process.env.NODE_ENV === 'production' && (
           <GoogleAnalytics gaId="G-TSTTB1J1Y9" />
         )}
-        <Analytics />
+        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )
