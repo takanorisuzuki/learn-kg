@@ -49,8 +49,8 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
             </div>
           </footer>
         </div>
-        {process.env.NODE_ENV === 'production' && (
-          <GoogleAnalytics gaId="G-TSTTB1J1Y9" />
+        {process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
         )}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
